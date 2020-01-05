@@ -96,7 +96,9 @@
         });
       };
       if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
+        //if (CONFIG.hostname !== location.hostname) return;
+        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+        if (localhost.test(document.URL)) return;
         addCount(Counter);
       } else if (document.querySelectorAll('.post-title-link').length >= 1) {
         showTime(Counter);
